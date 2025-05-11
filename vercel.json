@@ -2,17 +2,40 @@
   "version": 2,
   "builds": [
     {
-      "src": "main-page/**/*",
+      "src": "**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/login",
+      "dest": "/login page/login.html"
+    },
+    {
+      "src": "/signup",
+      "dest": "/signup page/signup.html"
+    },
+    {
+      "src": "/forgot-password",
+      "dest": "/forgot password/forgot-password.html"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/main-page/assets/$1"
+    },
+    {
+      "src": "/main-page/(.*)",
+      "dest": "/main-page/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/main-page/$1"
     },
     {
-      "src": "/",
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
       "dest": "/main-page/index.html"
     }
   ]
